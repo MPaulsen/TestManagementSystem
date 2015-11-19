@@ -1,0 +1,173 @@
+﻿@using Test_Management.Models;
+@model TestCourseVM
+
+@Html.Partial("_Nav")
+<!--Bootstrap this up a bit with some divs-->
+<h2>Add New Test</h2>
+@Html.ValidationSummary(true, "The following errors were found:", new { @class = "alert alert-danger" })
+
+<div class="container">
+    @using (Html.BeginForm("LoadTestInfo", "Home", FormMethod.Post, new { id = "ddlForm" }))
+    {
+        @Html.DropDownListFor(tcvm => tcvm.title, Model._titles(), new { id = "myddl", data_url = Url.Action("LoadTestInfo", "Home") });
+    }
+
+    @using (Html.BeginForm("SubmitTest", "Home", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.title)
+        @Html.HiddenFor(m => m.prof.Id)
+        <br />
+        <div class="col-md-4">
+            <h4>Select Sections:</h4>
+            @for (int i = 0; i < Model.courses.Count; i++)
+            {
+                @Html.CheckBoxFor(m => m.courses[i].Selected, new { id = Model.courses[i].Id })
+                @Html.HiddenFor(m => m.courses[i].Id)
+                @Html.DisplayFor(m => m.courses[i].Section)
+                <br />
+            }
+            <br />
+            <h4>Test Name:</h4>
+            @Html.DisplayFor(m => m.test.Name)
+            @Html.DropDownListFor(tcvm => tcvm.testName, Model._Names())
+            @Html.DropDownListFor(tcvm => tcvm.testNumber, Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
+            <br />
+            <br />
+            <h4>Open Date &amp; Time:</h4>
+            <div class="form-group">
+                @Html.LabelFor(tcvm => tcvm.testDateOpen, "Start Date:")
+                <div class="input-group">
+                    @Html.TextBoxFor(tcvm => tcvm.testDateOpen, "Click to Set", new { @class = "form-control date dateOpen" })
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(tcvm => tcvm.testDateOpen)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(tcvm => tcvm.testTimeOpen, "Start Time:")
+                <div class="input-group">
+                    @Html.TextBoxFor(tcvm => tcvm.testTimeOpen, "Click to Set", new { @class = "form-control time" })
+                    <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(tcvm => tcvm.testTimeOpen)
+            </div>
+            <br />
+            <h4>Close Date &amp; Time:</h4>
+            <div class="form-group">
+                @Html.LabelFor(tcvm => tcvm.testDateClose, "Close Date:")
+                <div class="input-group">
+                    @Html.TextBoxFor(tcvm => tcvm.testDateClose, "Click to Set", new { @class = "form-control date dateClose" })
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(tcvm => tcvm.testDateClose)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(tcvm => tcvm.testTimeClose, "Close Time:")
+                <div class="input-group">
+                    @Html.TextBoxFor(tcvm => tcvm.testTimeClose, "Click to Set", new { @class = "form-control time" })
+                    <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(tcvm => tcvm.testTimeClose)
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.LabelFor(tcvm => tcvm.test.Notes, "Test Notes:")
+                <div class="input-group">
+                    @Html.TextAreaFor(tcvm => tcvm.test.Notes, new { cols = 60, rows = 3, @class = "form-control" })
+                </div>
+                @Html.ValidationMessageFor(tcvm => tcvm.test.Notes)
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="input-group">
+                    @Html.LabelFor(tcvm => tcvm.test.Length, "Test Length (Minutes):")&nbsp;&nbsp;
+                    @Html.TextBoxFor(tcvm => tcvm.test.Length, new { style = "width:50px" })
+                </div>
+                @Html.ValidationMessageFor(tcvm => tcvm.test.Length)
+            </div>
+            <br />
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Material</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+            int ind = 0;
+            foreach (Material mat in Model.materialList)
+            {
+                <tr>
+                    <td>@Html.CheckBoxFor(tcvm => tcvm.materialList[ind].Quantity)</td>
+                    <td>@mat.Name</td>
+                    @Html.HiddenFor(tcvm => tcvm.materialList[ind].MaterialID)
+                </tr>
+                ind++;
+            }
+                    }
+                </tbody>
+            </table>
+
+            <input class="btn-ucf btn btn-large" style="width:250px" type="submit" />
+        </div>
+    }
+</div>
+
+
+<script>
+    $('input.time').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '8:00pm' });
+
+    var array = [];
+    var array2 = [];
+
+    @foreach (var d in Model.BlackedOutDatesArray)
+    {
+        @:array.push("@d");
+        @:array2.push("@d");
+    }
+    $('input.dateOpen').datepicker({
+        defaultDate: null,
+        minDate: 7,
+        maxDate: @Model.DaysLeft,
+        showAnim: "slideDown",
+        beforeShowDay: function (date) {
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [array.indexOf(string) == -1 && date.getDay() != 0]
+        }
+    });
+
+
+    @foreach (var d in Model.FullDatesArray)
+    {
+        @:array2.push("@d");
+    }
+
+    $('input.dateClose').datepicker({
+        defaultDate: null,
+        minDate: 7,
+        maxDate: @Model.DaysLeft,
+        showAnim: "slideDown",
+        beforeShowDay: function (date) {
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [array2.indexOf(string) == -1 && date.getDay() != 0]
+        }
+    });
+
+    $(function() {
+        $('#myddl').change(function () {
+            var url = $(this).data('url');
+            var value = $(this).val();
+            $("#ddlForm").submit();
+        });
+    });
+
+</script>

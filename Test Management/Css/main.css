@@ -1,0 +1,376 @@
+html, body {
+	font-family: 'PT Sans', sans-serif;
+    height: 100%; /* used to stick footer at the bottom */
+}
+html.ie8 {
+    overflow-x: hidden;
+}
+/* fix Opera: used to stick footer at the bottom */
+body:before {
+	content: "";
+	height: 100%;
+	float: left;
+	width: 0;
+	margin-top: -32767px;/
+}
+.btn-ucf {
+    background: #FFC904 !important;
+    color: black;
+}
+.btn-ucf:hover {
+    background: #FFEBA4 !important;
+}
+.btn-block-xs {
+    display: block;
+    width: 100%;
+}
+.ui-widget-header {
+	border: 1px solid #FFC904;
+	background: #FFC904 url("images/ui-bg_highlight-soft_75_FFC904_1x100.png") 50% 50% repeat-x;
+}
+h3 {
+    margin-top: 0;
+}
+h4 {
+    font-weight: bold;
+}
+#ucfhb {
+    margin-bottom: -50px !important;
+}
+#wrap {   
+	width: 100%;
+	min-height: 100%; /* used to stick footer at the bottom */	
+    padding-top: 50px;
+}
+body.kiosk #wrap {
+    padding-top: 0;
+}
+header {
+    background: #1E1E1E;
+}
+header h1 {
+    font-family: adobe-caslon-pro, serif;
+    font-size: 19px;
+    margin: 10px;
+    text-align: center;
+    line-height: normal;
+}
+header h1 a {
+    color: white;
+}
+header h1 a:hover, header h1 a:focus {
+    color: white;
+    text-decoration: none;
+}
+section {    
+	padding-bottom: 100px; /* must be same height as the footer height + padding (top + bottom) + extra padding (top + bottom) */
+}
+section .container {
+    padding: 10px 15px 30px 15px;
+}
+#greeting {
+    text-align: center;
+}
+#greeting .btn {
+    margin-bottom: 10px;
+}
+footer {
+    background: black;
+    color: #5F5F5F;
+    text-align: center;
+    height: 100px;
+    padding-top: 20px;
+	margin-top: -100px; /* negative value of footer height + padding */	
+}
+footer a, footer a:focus {
+    color: #5F5F5F;
+}
+footer a:hover {
+    color: #ccc;
+    text-decoration: none;
+}
+#content ul {
+    margin-left: 15px;
+    padding: 0;
+}
+#content ol {
+    margin-left: 20px;
+    padding: 0;
+}
+.modal-backdrop {
+    z-index: 10000;
+}
+.modal {
+    z-index: 10001;
+}
+.ui-datepicker {
+    border-color: #ccc;
+    z-index: 10001 !important;
+}
+.ui-datepicker * {
+    font-size: 14px;
+}
+.ui-datepicker-prev.ui-state-disabled, .ui-datepicker-next.ui-state-disabled {
+    display: none;
+}
+.ui-datepicker .ui-state-active {
+    background: #FFC904;
+}
+#appointment-type a {
+    margin-top: 10px;
+}
+#existing-appointment table {
+    width: 100%;
+}
+#existing-appointment th {
+    padding: 10px 0;
+}
+#existing-appointment td {
+    vertical-align: middle;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+#existing-appointment td:last-child {
+    width: 0;
+    text-align: right;
+}
+#existing-appointment tr:last-child td {
+    border: none;
+}
+#existing-appointment .btn span {
+    display: none;
+}
+#existing-appointment tr.attended td {
+    background: #dff0d8;
+    color: #3c763d;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+#existing-appointment tr.cancelled td {
+    background: #d9edf7;
+    color: #31708f;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+#existing-appointment tr.expired td {
+    background: #fcf8e3;
+    color: #8a6d3b;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+#times {
+    display: none;
+}
+#times .btn {
+    width: 100px;
+    margin: 0 5px 5px 0;
+    float: left;
+    background: #fff;
+}
+#appointment input {
+    visibility: hidden;
+    position: absolute;
+}
+#appointment .alert-danger {
+    margin: 10px 0 0 0;
+}
+#appointment .error {
+    font-weight: normal;
+}
+#confirmation .lead {
+    margin: 0 15px;
+}
+#confirmation #details {
+    font-size: 20px;
+}
+#dates .ui-datepicker-unselectable {
+    opacity: 1;
+    filter: Alpha(Opacity=100);
+}
+#dates .ui-datepicker-unselectable span {
+    border-color: #eee;
+    color: #ccc;
+    background: none;
+    cursor: not-allowed;
+}
+#times .btn.disabled {
+    box-shadow: none;
+    opacity: 0.65;
+    pointer-events: auto;
+    background: #eee;
+}
+#dates .tooltip-inner, #times .tooltip-inner {
+    white-space: nowrap;
+    padding: 10px;
+    font-size: 14px;
+}
+#help-modal {
+    text-align: left;
+}
+#help-modal .fa-info-circle {
+    cursor: help;
+}
+#help-modal .tooltip-inner {
+    text-align: left;
+}
+#path-selection .btn {
+    margin-bottom: 10px;
+}
+#attendace-selection .panel {
+    margin-bottom: 0;
+}
+#attendace-selection .panel-body {
+    min-height: 257px;
+}
+#attendace-selection ol {
+    list-style-type: none;
+    margin: 0;
+}
+#attendace-selection li {
+    float: left;
+    clear: both;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+}
+#attendace-selection li:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+#attendace-selection span {
+    float: left;
+    margin-top: 5px;
+}
+#attendace-selection .remove {
+    float: right;
+}
+#dates .ui-datepicker .selected a {
+    background: #ffc904;
+}
+#override-date-modal .alert-danger {
+    margin-bottom: 0;
+}
+#attendance-confirmation .cancelling {
+    text-decoration: line-through;
+}
+
+@media (min-width: 768px) {  
+    body {
+        background: url('../Images/bg.jpg');
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    .btn-block-xs {
+        display: inline-block;
+        width: auto;
+    }
+    header {
+        background: none;
+    }
+    header h1 {
+        font-size: 29px;
+        margin: 20px;
+    }
+    html.ie10 header h1, html.ie9 header h1, html.ie8 header h1, html.ie8 header h1 {
+        font-size: 26px;
+    }
+    section > .container {
+        position: relative;
+        background: rgba(255, 255, 255, 0.85);
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        margin-bottom: 40px;
+        min-height: 400px;
+    }
+    #greeting {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    #greeting .btn {
+        margin-bottom: 0;
+    }
+    #greeting .col-md-8 {
+        padding-left: 0;
+    }
+    #appointment-type {
+        margin-top: 80px;
+    }
+    #appointment-type a {
+        font-size: 16px;
+        padding: 20px 0;
+    }
+    #sm-res {
+        display: none;
+    }
+    #existing-appointment table {
+        border-collapse: separate;
+        border-spacing: 0 20px;
+        margin-top: -20px;
+    }
+    #existing-appointment th {
+        padding: 7px 10px;
+    }
+    #existing-appointment td {
+        padding: 7px 10px;
+        background: #fff;
+        border-radius: 4px;
+        border: none;
+        min-height: 25px;
+    }
+    #existing-appointment td:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    #existing-appointment td:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        white-space: nowrap;
+    }
+    #path-selection .btn {
+        font-size: 25px;
+        padding: 50px 0;
+    }
+    #path-selection i {
+        display: block;
+        font-size: 50px;
+    }
+}
+@media (min-width: 992px) {    
+    header h1 {
+        font-size: 33px;
+    }
+    html.ie10 header h1, html.ie9 header h1, html.ie8 header h1 {
+        font-size: 30px;
+    }
+    #existing-appointment .btn span {
+        display: inline;
+    }
+    #appointment-type a {
+        font-size: 22px;
+    }
+    #md-res {
+        display: none;
+    }
+}
+@media (min-width: 1200px) {
+    header h1 {
+        font-size: 40px;
+    }
+    html.ie10 header h1, html.ie9 header h1, html.ie8 header h1 {
+        font-size: 37px;
+    }
+    #appointment-type a {
+        font-size: 24px;
+    }
+    #lg-res {
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    .btns .btn {
+        width: 100%;
+    }
+}

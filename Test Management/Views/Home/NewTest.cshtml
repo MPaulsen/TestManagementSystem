@@ -1,0 +1,25 @@
+﻿@model Test_Management.Models.TestCourseVM
+
+@Html.Partial("_Nav")
+<!--Bootstrap this up a bit with some divs-->
+<h2>Add New Test</h2>
+@Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+@using (Html.BeginForm("LoadTestInfo", "Home", FormMethod.Post, new { id = "ddlForm" } ))
+{
+    @Html.DropDownListFor(tcvm => tcvm.title, Model._titles(), "Select Course", new { id = "myddl", data_url = Url.Action("LoadTestInfo", "Home") });
+}
+
+@section Scripts{
+    <script type="text/javascript">
+
+$(function() {
+    $('#myddl').change(function () {
+       var url = $(this).data('url');
+       var value = $(this).val();
+        $("#ddlForm").submit();
+    });
+});
+
+    </script>
+}

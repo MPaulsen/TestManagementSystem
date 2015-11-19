@@ -1,0 +1,241 @@
+﻿.form-inline .form-group {
+    margin-bottom: 0 !important;
+}
+.dataTables_filter label {
+    float: left !important;
+    margin: 7px 10px 0 0 !important;
+}
+.dataTables_filter input {
+	width: 180px !important;
+}  
+.ui-widget {
+    font-family: inherit;
+    font-size: inherit;
+}
+.ui-widget-header {
+	border: 1px solid #FFC904;
+	background: #FFC904 url("images/ui-bg_highlight-soft_75_FFC904_1x100.png") 50% 50% repeat-x;
+}
+.ui-autocomplete {
+    max-height: 133px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#login .img {
+    background: white;
+    border-radius: 50%;
+    padding-top: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    font-size: 100px;    
+    width: 100px;
+    height: 100px;
+}
+#login .alert-danger ul {
+    padding: 0;
+    margin: 0;   
+    list-style-type: none;     
+}
+#settings input {
+    width: 200px;
+}
+#settings textarea {
+    width: 600px;
+    height: 100px;
+}
+.dataTables_wrapper .row:first-child .col-xs-9 {
+	float: left;
+}
+.dataTables_wrapper .row:first-child .col-xs-3 {
+	float: right;
+}
+.dataTables_filter {
+	float: left;
+}
+.dataTables_length {
+    padding-top: 10px;
+}
+.dataTables_length label {
+    float: right !important;
+}
+.dataTable {
+	width: 100% !important;
+    background: white;
+}
+.dataTable tr.even {
+    background: #eee;
+}
+.dataTable th, .dataTable td {
+	white-space: nowrap !important;
+	padding: 4px 8px !important;
+	vertical-align: middle !important;
+}
+.dataTable th {
+	padding: 8px 8px !important;
+}
+.dataTable th:last-child {
+    background: none !important;
+}
+.dataTable .update, .dataTable .cancel, .dataTable td > .form-control, .dataTable td > .input-group {
+    display: none;
+}
+.dataTable td > .input-group .input-group-addon {
+    height: 34px;
+}
+#users th:last-child {
+    width: 0;
+}
+.modal-body .input-group-addon {
+    min-width: 40px;
+}
+#settings .fa-info-circle {
+    cursor: help;
+}
+.tooltip-inner {
+    white-space: normal;
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+}
+#test-slot-list .results {
+    margin-top: 15px;
+}
+#test-slot-list .results button[type=submit] {
+    margin-top: 15px;
+}
+#test-slot-list .load, #enrollment .load, #test-slot-list .load, #locks .load {
+    margin-top: 50px;
+    text-align: center;
+}
+#test-slot-list .load i, #enrollment .load i, #test-slot-list .load i, #locks .load i {
+    margin-bottom: 10px;
+}
+#test-slot-list .alert-danger {
+    display: inline-block;
+}
+#test-slot-tabs {
+    background: none;
+    border: none;
+}
+#test-slot-tabs .ui-widget-header {
+    background: none;
+    border: none;
+}
+#test-slot-list .nav-tabs .ui-state-default {
+    margin-bottom: -2px;
+}
+#test-slot-list .nav-tabs .ui-state-default:hover {
+}
+#test-slot-list .ui-tabs-active {
+    background: #fff !important;
+    border-bottom: 1px solid #fff !important;
+}
+#test-slot-list .nav-tabs a {
+    background: none;
+    border: none;
+}
+#test-slot-tabs .dataTables_filter {
+    margin-left: 10px;
+}
+#test-slot-tabs .dataTables_length {
+    margin-right: 10px;
+}
+#test-slot-tabs #tab-new {
+    padding: 10px;
+}
+#settings input.date, #settings input.time, #test-slot-tabs input.date, #test-slot-tabs input.time, #test-slot-template input.time, #enrollment input.date, #locks input.date {
+    width: 100px;
+}
+#test-slot-tabs input.int {
+    width: 50px;
+}
+#test-slot-tabs .ui-widget-content {
+    background: #fff;
+    border: 1px solid #aaa;
+}
+#test-slot-tabs .dataTables_info {
+    margin-left: 10px;
+}
+#test-slot-tabs .dataTables_paginate {
+    margin-right: 10px;
+}
+#test-slot-tabs #tab-current {
+    padding: 0;
+}
+#slot-multiple .form-inline {
+    margin: 10px 0;
+}
+#slot-multiple input[type=checkbox] {
+    margin-top: 0;
+}
+#slot-multiple .clearfix {
+    height: 5px;
+}
+#slot-multiple .alert-danger {
+    margin: 0;
+}
+#test-slot-tabs td {
+    vertical-align: middle;
+}
+#courses th:last-child.sorting {
+    background: url("images/sort_both.png") no-repeat right center !important;
+    padding-right: 20px !important;
+}
+#courses th:last-child.sorting_asc {
+    background: url("images/sort_asc.png") no-repeat right center !important;
+    padding-right: 20px !important;
+}
+#courses th:last-child.sorting_desc {
+    background: url("images/sort_desc.png") no-repeat right center !important;
+    padding-right: 20px !important;
+}
+#courses .dataTables_filter input {
+    width: 300px !important;
+}
+.ui-datepicker {
+    z-index: 2 !important;
+}
+#enrollment .form-inline .clearfix {
+    height: 7px;
+}
+#enrollment .form-inline label, #locks .form-inline label {
+    font-weight: normal;
+}
+#enrollment .dataTables_filter input {
+    width: 260px !important;
+}
+#locks .dataTables_filter input {
+    width: 330px !important;
+}
+#slots input[type=radio] {
+    margin: 0;
+}
+#enroll-modal .modal-dialog {
+    width: 800px;
+}
+.paginate_button.active a, .paginate_button.active a:hover {
+    background: #FFC904;
+    color: black;
+    border-color: #FFC904;
+}
+table.dataTable.dtr-inline.collapsed tbody td:first-child::before, 
+table.dataTable.dtr-inline.collapsed tbody th:first-child::before {
+    display: inline-block;
+    left: 0;
+    margin-right: 7px;
+    position: relative;
+    top: 0;
+}
+#attendance-date-exceptions td .input-group {
+    width: 140px;
+}
+#attendance-date-exceptions td:nth-child(3) .input-group {
+    width: 240px;
+}
+#attendance-date-exceptions input[type=text] {
+    width: 200px;
+}
+#attendance-date-exceptions input.date {
+    width: 100px;
+}

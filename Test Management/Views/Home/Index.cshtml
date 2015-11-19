@@ -1,0 +1,19 @@
+﻿@model Test_Management.Models.User
+
+@Html.ValidationSummary(true, "The following errors were found:", new { @class = "alert alert-danger" })
+<h1>Test Management System</h1>
+<br />
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="form-group">
+        <div class="input-group">
+            @Html.AntiForgeryToken()
+            @Html.TextBoxFor(prof => prof.Username, new { @class = "form-control", autocomplete = "off", autofocus = "autofocus", required = "required", placeholder = "NID", style = "margin-bottom:5px; width:175px" })
+            <br />
+            @Html.PasswordFor(prof => prof.Password, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = "Password", style = "margin-bottom:5px; width:175px" })
+            <br />
+            <input class="btn-ucf btn btn-lg" type="submit" value="Login" />
+        </div>
+    </div>
+}
