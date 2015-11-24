@@ -47,7 +47,7 @@
             <div class="form-group">
                 @Html.LabelFor(tcvm => tcvm.testTimeOpen, "Start Time:")
                 <div class="input-group">
-                    @Html.TextBoxFor(tcvm => tcvm.testTimeOpen, "Click to Set", new { @class = "form-control time" })
+                    @Html.TextBoxFor(tcvm => tcvm.testTimeOpen, "Click to Set", new { @class = "form-control time openTime" })
                     <div class="input-group-addon">
                         <i class="fa fa-clock-o"></i>
                     </div>
@@ -69,7 +69,7 @@
             <div class="form-group">
                 @Html.LabelFor(tcvm => tcvm.testTimeClose, "Close Time:")
                 <div class="input-group">
-                    @Html.TextBoxFor(tcvm => tcvm.testTimeClose, "Click to Set", new { @class = "form-control time" })
+                    @Html.TextBoxFor(tcvm => tcvm.testTimeClose, "Click to Set", new { @class = "form-control time closeTime" })
                     <div class="input-group-addon">
                         <i class="fa fa-clock-o"></i>
                     </div>
@@ -124,7 +124,7 @@
 
 
 <script>
-    $('input.time').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '8:00pm' });
+    $('input.time').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '11:59pm' });
 
     var array = [];
     var array2 = [];
@@ -142,6 +142,16 @@
         beforeShowDay: function (date) {
             var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
             return [array.indexOf(string) == -1 && date.getDay() != 0]
+        },
+        onSelect: function(dateText, inst) {
+            var date = $(this).datepicker('getDate');
+            var dayOfWeek = date.getUTCDay();
+
+            $(function () {$('input.openTime').timepicker('remove');});
+
+            if (dayOfWeek == 5) $(function () {$('input.openTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '9:30pm' });});
+            if (dayOfWeek == 6) $(function () {$('input.openTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '9:30am', 'maxTime': '8:30pm' });});
+            if (dayOfWeek < 5 ) $(function () {$('input.openTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '11:59pm'});});
         }
     });
 
@@ -159,6 +169,16 @@
         beforeShowDay: function (date) {
             var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
             return [array2.indexOf(string) == -1 && date.getDay() != 0]
+        },
+        onSelect: function(dateText, inst) {
+            var date = $(this).datepicker('getDate');
+            var dayOfWeek = date.getUTCDay();
+
+            $(function () {$('input.closeTime').timepicker('remove');});
+
+            if (dayOfWeek == 5) $(function () {$('input.closeTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '9:30pm' });});
+            if (dayOfWeek == 6) $(function () {$('input.closeTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '9:30am', 'maxTime': '8:30pm' });});
+            if (dayOfWeek < 5 ) $(function () {$('input.closeTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '11:59pm'});});
         }
     });
 

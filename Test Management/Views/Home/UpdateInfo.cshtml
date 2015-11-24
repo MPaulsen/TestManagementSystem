@@ -1,0 +1,16 @@
+﻿@model string
+
+@Html.Partial("_Nav")
+
+@{
+    ViewBag.Title = "UpdateInfo";
+}
+
+<h2>Update Contact Info</h2>
+
+@using (Html.BeginForm("UpdateInfo", "Home", FormMethod.Post, new { id = "ddlForm" }))
+{
+    @Html.TextBox("number", Model);
+    <input class="btn-ucf btn btn-lg" type="submit" />
+}
+

@@ -24,6 +24,15 @@ body:before {
     display: block;
     width: 100%;
 }
+
+.navbar-ucf {
+    background-color: gold;
+}
+.navbar-ucf .navbar-nav > li > a {
+  color: black;
+  font-size: 11pt;
+}
+
 .ui-widget-header {
 	border: 1px solid #FFC904;
 	background: #FFC904 url("images/ui-bg_highlight-soft_75_FFC904_1x100.png") 50% 50% repeat-x;
@@ -78,9 +87,9 @@ footer {
     background: black;
     color: #5F5F5F;
     text-align: center;
-    height: 100px;
+    height: 125px;
     padding-top: 20px;
-	margin-top: -100px; /* negative value of footer height + padding */	
+	margin-top: -125px; /* negative value of footer height + padding */	
 }
 footer a, footer a:focus {
     color: #5F5F5F;
