@@ -4,7 +4,7 @@
 }
 
 @Html.Partial("_Nav")
-
+@Html.ValidationSummary(true, "The following errors were found:", new { @class = "alert alert-danger" })
 <div id="MainContent_pMain">
 
     <h2>
@@ -48,12 +48,12 @@
         </li>
         <li>
             <p>
-                Email:<a href="mailto:testinglab@bus.ucf.edu">testinglab@bus.ucf.edu</a>
+                Email: <a href="mailto:testinglab@bus.ucf.edu">testinglab@ucf.edu</a>
             </p>
         </li>
         <li>
             <p>
-                <a class="info" href="http://www.bus.ucf.edu/testinglab/">
+                <a class="info" href="http://business.ucf.edu/centers-institutes/keon-testing-center/ ">
                     Testing Lab Site<span>
                         To visit
                         the CBA Testing Lab's site click here

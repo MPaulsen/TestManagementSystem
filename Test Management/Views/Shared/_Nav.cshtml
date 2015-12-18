@@ -11,15 +11,13 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
-                <li><a href="~/Home/Home">Home</a></li>
-                <li><a href="~/Home/NewTest">Request a Test Date</a></li>
-                <li><a href="#">Edit a Test</a></li>
-                <li><a href="#">Add Test Exception</a></li>
-                <li><a href="~/Home/UpdateInfo">Update Contact Info</a></li>
-                <li><a href="#">Report a Bug</a></li>
-                
+                <li><a href="@Url.Action("Home", "Home")" class="btn btn-ucf btn-block-xs"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="@Url.Action("NewTest", "Home")" class="btn btn-ucf btn-block-xs"><i class="fa fa-calendar"></i> Request Test Date</a></li>
+                <li><a href="@Url.Action("EditTest", "Home")" class="btn btn-ucf btn-block-xs"><i class="fa fa-eraser"></i> Edit Tests</a></li>
+                <li><a href="@Url.Action("AddTestException", "Home")" class="btn btn-ucf btn-block-xs"><i class="fa fa-street-view"></i> Add Test Exception</a></li>
+                <li><a href="@Url.Action("UpdateInfo", "Home")" class="btn btn-ucf btn-block-xs"><i class="fa fa-phone"></i> Update Contact Info</a></li>              
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->

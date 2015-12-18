@@ -162,6 +162,7 @@
     </Compile>
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Database.cs" />
+    <Compile Include="Models\ExceptionVM.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Professor.cs" />
     <Compile Include="Models\Test.cs" />
@@ -327,6 +328,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\AddTestException.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ExceptionInfo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ExceptionConfirmation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\EditTest.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\EditTest2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\EditTestInfo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Desktop.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

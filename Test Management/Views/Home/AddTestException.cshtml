@@ -1,7 +1,24 @@
-﻿
-@{
-    ViewBag.Title = "AddTestException";
-}
+﻿@using Test_Management.Models;
+@model ExceptionVM
 
-<h2>AddTestException</h2>
+@Html.Partial("_Nav")
 
+<h2>Add Test Exception</h2>
+
+@Html.ValidationSummary(true, "The following errors were found:", new { @class = "alert alert-danger" })
+
+<div class="container">
+    @using (Html.BeginForm("ExceptionNID", "Home", FormMethod.Post))
+    {
+        <h4>NID:</h4>
+        @Html.DisplayFor(EVM => EVM.NID)
+        @Html.TextBoxFor(EVM => EVM.NID)
+        <br /><br />
+        <input class="btn-ucf btn btn-large" style="width:150px" type="submit" value="Next" />
+
+    }
+</div>
+
+<script>
+
+</script>

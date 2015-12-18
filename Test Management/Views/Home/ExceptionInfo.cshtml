@@ -1,0 +1,131 @@
+﻿@using Test_Management.Models;
+@model ExceptionVM
+
+@Html.Partial("_Nav")
+
+<h2>Add Test Exception</h2>
+
+@Html.ValidationSummary(true, "The following errors were found:", new { @class = "alert alert-danger" })
+
+<div class="container">
+    @using (Html.BeginForm("ExceptionInfo", "Home", FormMethod.Post))
+    {
+        <div class="col-md-4">
+            <h4>NID:</h4>
+            @Html.TextBoxFor(EVM => EVM.NID, new { @readonly = true })
+            <br />
+
+            <h4>Test:</h4>
+            @Html.DisplayFor(EVM => EVM.TID)
+            @Html.DropDownListFor(EVM => EVM.TID, Model._Tests())
+            <br /><br />
+
+            <h4>Open Date &amp; Time:</h4>
+            <div class="form-group">
+                @Html.LabelFor(EVM => EVM.Open, "Start Date:")
+                <div class="input-group">
+                    @Html.TextBoxFor(EVM => EVM.Open, "Click to Set", new { @class = "form-control date dateOpen" })
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(EVM => EVM.Open)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(EVM => EVM.exceptionTimeOpen, "Start Time:")
+                <div class="input-group">
+                    @Html.TextBoxFor(EVM => EVM.exceptionTimeOpen, "Click to Set", new { @class = "form-control time openTime" })
+                    <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(EVM => EVM.exceptionTimeOpen)
+            </div>
+            <br />
+            <h4>Close Date &amp; Time:</h4>
+            <div class="form-group">
+                @Html.LabelFor(EVM => EVM.Close, "Close Date:")
+                <div class="input-group">
+                    @Html.TextBoxFor(EVM => EVM.Close, "Click to Set", new { @class = "form-control date dateClose" })
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(EVM => EVM.Close)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(EVM => EVM.exceptionTimeClose, "Close Time:")
+                <div class="input-group">
+                    @Html.TextBoxFor(EVM => EVM.exceptionTimeClose, "Click to Set", new { @class = "form-control time closeTime" })
+                    <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(EVM => EVM.exceptionTimeClose)
+            </div>
+
+            <br /><br />
+            <input class="btn-ucf btn btn-large" style="width:150px" type="submit" value="Submit" />
+        </div>
+
+
+    }
+    </div>
+
+<script>
+    $('input.time').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '11:59pm' });
+
+    var array = [];
+
+    @foreach (var d in Model.BlackedOutDatesArray)
+    {
+        @:array.push("@d");
+        }
+
+    $('input.dateOpen').datepicker({
+        defaultDate: null,
+        minDate: 0,
+        maxDate: @Model.DaysLeft,
+        showAnim: "slideDown",
+        beforeShowDay: function (date) {
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [array.indexOf(string) == -1 && date.getDay() != 0]
+        },
+        onSelect: function(dateText, inst) {
+            var date = $(this).datepicker('getDate');
+            var dayOfWeek = date.getUTCDay();
+
+            $(function () {$('input.openTime').timepicker('remove');});
+
+            if (dayOfWeek == 5) $(function () {$('input.openTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '9:30pm' });});
+            if (dayOfWeek == 6) $(function () {$('input.openTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '9:30am', 'maxTime': '8:30pm' });});
+            if (dayOfWeek < 5 ) $(function () {$('input.openTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '11:59pm'});});
+        }
+    });
+
+    $('input.dateClose').datepicker({
+        defaultDate: null,
+        minDate: 0,
+        maxDate: @Model.DaysLeft,
+        showAnim: "slideDown",
+        beforeShowDay: function (date) {
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [array.indexOf(string) == -1 && date.getDay() != 0]
+        },
+        onSelect: function(dateText, inst) {
+            var date = $(this).datepicker('getDate');
+            var dayOfWeek = date.getUTCDay();
+
+            $(function () {$('input.closeTime').timepicker('remove');});
+
+            if (dayOfWeek == 5) $(function () {$('input.closeTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '9:30pm' });});
+            if (dayOfWeek == 6) $(function () {$('input.closeTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '9:30am', 'maxTime': '8:30pm' });});
+            if (dayOfWeek < 5 ) $(function () {$('input.closeTime').timepicker({ 'timeFormat': 'h:i A', 'minTime': '7:00am', 'maxTime': '11:59pm'});});
+        }
+    });
+
+
+
+
+</script>
+

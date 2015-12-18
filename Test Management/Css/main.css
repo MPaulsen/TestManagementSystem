@@ -26,7 +26,12 @@ body:before {
 }
 
 .navbar-ucf {
-    background-color: gold;
+    background-color: transparent;
+    border: hidden;
+    
+}
+.navbar-ucf .navbar-nav > li {
+    margin: 3px;
 }
 .navbar-ucf .navbar-nav > li > a {
   color: black;

@@ -3,19 +3,15 @@
 
 @Html.Partial("_Nav")
 <!--Bootstrap this up a bit with some divs-->
-<h2>Add New Test</h2>
+<h2>Edit Test</h2>
 @Html.ValidationSummary(true, "The following errors were found:", new { @class = "alert alert-danger" })
 
 <div class="container">
-    @using (Html.BeginForm("LoadTestInfo", "Home", FormMethod.Post, new { id = "ddlForm" }))
-    {
-        @Html.DropDownListFor(tcvm => tcvm.title, Model._titles(), new { id = "myddl", data_url = Url.Action("LoadTestInfo", "Home") });
-    }
 
-    @using (Html.BeginForm("SubmitTest", "Home", FormMethod.Post))
+    @using (Html.BeginForm("SubmitTestEdit", "Home", FormMethod.Post))
     {
-        @Html.HiddenFor(m => m.title)
-        @Html.HiddenFor(m => m.prof.Id)
+        @Html.HiddenFor(m => m.test.Id)
+        @Html.HiddenFor(m => m.test.Name)
         <br />
         <div class="col-md-4">
             <h4>Select Sections:</h4>
@@ -29,20 +25,18 @@
             <br />
             <h4>Test Name:</h4>
             @Html.DisplayFor(m => m.test.Name)
-            @Html.DropDownListFor(tcvm => tcvm.testName, Model._Names())
-            @Html.DropDownListFor(tcvm => tcvm.testNumber, Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }))
             <br />
             <br />
             <h4>Open Date &amp; Time:</h4>
             <div class="form-group">
-                @Html.LabelFor(tcvm => tcvm.testDateOpen, "Start Date:")
+                @Html.LabelFor(tcvm => tcvm.testDateOpenEdit, "Start Date:")
                 <div class="input-group">
-                    @Html.TextBoxFor(tcvm => tcvm.testDateOpen, "Click to Set", new { @class = "form-control date dateOpen" })
+                    @Html.TextBoxFor(tcvm => tcvm.testDateOpenEdit, new { @class = "form-control date dateOpen" })
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
                 </div>
-                @Html.ValidationMessageFor(tcvm => tcvm.testDateOpen)
+                @Html.ValidationMessageFor(tcvm => tcvm.testDateOpenEdit)
             </div>
             <div class="form-group">
                 @Html.LabelFor(tcvm => tcvm.testTimeOpen, "Start Time:")
@@ -57,14 +51,14 @@
             <br />
             <h4>Close Date &amp; Time:</h4>
             <div class="form-group">
-                @Html.LabelFor(tcvm => tcvm.testDateClose, "Close Date:")
+                @Html.LabelFor(tcvm => tcvm.testDateCloseEdit, "Close Date:")
                 <div class="input-group">
-                    @Html.TextBoxFor(tcvm => tcvm.testDateClose, "Click to Set", new { @class = "form-control date dateClose" })
+                    @Html.TextBoxFor(tcvm => tcvm.testDateCloseEdit, new { @class = "form-control date dateClose" })
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
                 </div>
-                @Html.ValidationMessageFor(tcvm => tcvm.testDateClose)
+                @Html.ValidationMessageFor(tcvm => tcvm.testDateCloseEdit)
             </div>
             <div class="form-group">
                 @Html.LabelFor(tcvm => tcvm.testTimeClose, "Close Time:")

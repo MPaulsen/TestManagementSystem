@@ -1,0 +1,31 @@
+﻿@using Test_Management.Models;
+@model TestCourseVM
+
+@Html.Partial("_Nav")
+
+<h2>Edit Test</h2>
+@using (Html.BeginForm("TestSelect", "Home", FormMethod.Post, new { id = "ddlForm" }))
+{
+    <h4>Select Course:</h4>
+    @Html.TextBoxFor(tcvm => tcvm.SelectedCourseName, new { @readonly = true })
+    <br /><br />
+
+    <h4>Select Test:</h4>
+
+    @Html.DropDownListFor(tcvm => tcvm.SelectedTestID, Model._Tests(), new { id = "testddl" })
+    <br /><br />
+}
+
+
+
+<script>
+
+    $(function () {
+        $('#testddl').change(function () {
+            var url = $(this).data('url');
+            var value = $(this).val();
+            $("#ddlForm").submit();
+        });
+    });
+
+</script>
